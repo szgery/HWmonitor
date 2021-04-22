@@ -1,0 +1,17 @@
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\HWmonitor.csprojAssemblyReference.cache
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\MainWindow.g.cs
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\App.g.cs
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\HWmonitor_MarkupCompile.cache
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\HWmonitor_MarkupCompile.lref
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\bin\Debug\HWmonitor.exe.config
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\bin\Debug\HWmonitor.exe
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\bin\Debug\HWmonitor.pdb
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\bin\Debug\OpenHardwareMonitorLib.dll
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\MainWindow.baml
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\HWmonitor.g.resources
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\HWmonitor.Properties.Resources.resources
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\HWmonitor.csproj.GenerateResource.cache
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\HWmonitor.csproj.CoreCompileInputs.cache
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\HWmonitor.csproj.CopyComplete
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\HWmonitor.exe
+C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\HWmonitor.pdb
