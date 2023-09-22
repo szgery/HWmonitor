@@ -222,9 +222,15 @@ namespace HWmonitor
             search = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapter");
             foreach (var item in search.Get())
             {
+<<<<<<< HEAD
                 //networkAdapter.Content = item["Manufacturer"].ToString() + " " + item["Name"].ToString();                
                 //networkAdapterSpeed.Content = SizeSuffix(Convert.ToInt64(item["Speed"]));
                 //NwA = "Network adapter: " + item["Manufacturer"].ToString() + " " + item["Name"];
+=======
+                networkAdapter.Content = item["Manufacturer"].ToString() + " " + item["Name"];
+                networkAdapterSpeed.Content = SizeSuffix(Convert.ToInt64(item["Speed"]));
+                NwA = "Network adapter: " + item["Manufacturer"].ToString() + " " + item["Name"];
+>>>>>>> 7697199d5160582563a0d48cf6b65f673c31cc98
             }
             saveList.Add(NwA);
         }
