@@ -4,28 +4,16 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
 D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\
-=======
-C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\obj\Debug\
->>>>>>> 7697199d5160582563a0d48cf6b65f673c31cc98
 HWmonitor
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
 D:\HWmonitor-master\HWmonitor-master\HWmonitor\App.xaml
 1219584333
 
 51579654133
 151834112383
-=======
-C:\Users\Szergely\source\repos\HWmonitor\HWmonitor\App.xaml
-11151548125
-
-5-2017746502
-15-122296596
->>>>>>> 7697199d5160582563a0d48cf6b65f673c31cc98
 MainWindow.xaml;
 
 False
