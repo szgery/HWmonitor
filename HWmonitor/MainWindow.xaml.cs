@@ -209,8 +209,8 @@ namespace HWmonitor
 
             foreach (var item in search.Get())
             {
-                memorytype.Items.Add(item["Manufacturer"].ToString() + ", " + SizeSuffix(Convert.ToInt64(item["Capacity"].ToString())));
-                mem = "Memory: " + item["Manufacturer"].ToString() + ", " + SizeSuffix(Convert.ToInt64(item["Capacity"].ToString()));
+                memorytype.Items.Add(item["Name"].ToString() + " " + SizeSuffix(Convert.ToInt64(item["Capacity"].ToString())));
+                mem = "Memory: " + item["Name"].ToString() + " " + SizeSuffix(Convert.ToInt64(item["Capacity"].ToString()));
             }
             saveList.Add(mem);
         }
@@ -222,9 +222,8 @@ namespace HWmonitor
             search = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapter");
             foreach (var item in search.Get())
             {
-                //networkAdapter.Content = item["Manufacturer"].ToString() + " " + item["Name"];
-                //networkAdapterSpeed.Content = SizeSuffix(Convert.ToInt64(item["Speed"]));
-                //NwA = "Network adapter: " + item["Manufacturer"].ToString() + " " + item["Name"];
+                networkAdapter.Items.Add(item["Manufacturer"] + " " + item["Name"]);;                
+                NwA = "Network adapter: " + item["Manufacturer"].ToString() + " " + item["Name"];
             }
             saveList.Add(NwA);
         }
@@ -236,9 +235,9 @@ namespace HWmonitor
             search = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
             foreach (var item in search.Get())
             {
-                diskListBox.Items.Add(item["Manufacturer"].ToString() + ", " + SizeSuffix(Convert.ToInt64(item["Size"].ToString())));
+                diskListBox.Items.Add(item["Model"] + " " + SizeSuffix(Convert.ToInt64(item["Size"].ToString())));
 
-                disks = "Disks: " + item["Manufacturer"].ToString() + ", " + SizeSuffix(Convert.ToInt64(item["Size"].ToString())) + "/r/n";
+                disks = "Disks: " + item["Model"] + " " + SizeSuffix(Convert.ToInt64(item["Size"].ToString())) + "/r/n";
             }
             saveList.Add(disks);
         }
@@ -297,6 +296,11 @@ namespace HWmonitor
                     File.AppendAllLines(saveFileDialog1.FileName, productList);
                 }
             }
+        }
+
+        private void diskListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
