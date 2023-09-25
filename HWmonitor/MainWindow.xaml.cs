@@ -94,21 +94,27 @@ namespace HWmonitor
 
         public MainWindow()
         {
-            
-            if (isAdmin() == true)
+            try
             {
-                InitializeComponent();
-                Timer();
+                if (isAdmin() == true)
+                {
+                    InitializeComponent();
+                    Timer();
 
-                thisComputer = new Computer() { CPUEnabled = true, RAMEnabled = true, GPUEnabled = true };
-                thisComputer.Open();
+                    thisComputer = new Computer() { CPUEnabled = true, RAMEnabled = true, GPUEnabled = true };
+                    thisComputer.Open();
 
-                GetHardwareDatas();
+                    GetHardwareDatas();
+                }
+                else
+                {
+                    AdminRelauncher();
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Error: ", ex.ToString());
             }
-            else
-            {
-                AdminRelauncher();
-            }    
+            
         }
 
         public void Timer()
