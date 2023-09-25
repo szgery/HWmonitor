@@ -31,3 +31,8 @@ D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\HWmonitor.csproj.CoreCo
 D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\HWmonitor.csproj.CopyComplete
 D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\HWmonitor.exe
 D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\HWmonitor.pdb
+D:\HWmonitor-master\HWmonitor-master\HWmonitor\bin\Debug\HWmonitor.exe.manifest
+D:\HWmonitor-master\HWmonitor-master\HWmonitor\bin\Debug\HWmonitor.application
+D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\HWmonitor.TrustInfo.xml
+D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\HWmonitor.exe.manifest
+D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\HWmonitor.application

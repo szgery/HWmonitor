@@ -18,6 +18,11 @@ using System.Management;
 using System.Windows.Threading;
 using System.IO;
 using Microsoft.Win32;
+using System.Diagnostics;
+using System.Reflection;
+using System.Security.Principal;
+using System.Security.Permissions;
+using System.Net.NetworkInformation;
 
 namespace HWmonitor
 {
@@ -54,16 +59,56 @@ namespace HWmonitor
         Computer thisComputer;
         ManagementObjectSearcher search;
 
+        
+        [PermissionSetAttribute(SecurityAction.Demand, Name = "FullTrust")]
+
+        public static bool isAdmin()
+        {
+            var identity = WindowsIdentity.GetCurrent();
+            var principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
+
+        private void AdminRelauncher()
+        {
+            if (!isAdmin())
+            {
+                ProcessStartInfo proc = new ProcessStartInfo();
+                proc.UseShellExecute = true;
+                proc.WorkingDirectory = Environment.CurrentDirectory;
+                proc.FileName = Assembly.GetEntryAssembly().CodeBase;
+
+                proc.Verb = "runas";
+
+                try
+                {
+                    Process.Start(proc);
+                    Application.Current.Shutdown();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("This program must be run as an administrator! \n\n" + ex.ToString());
+                }
+            }
+        }
+
         public MainWindow()
         {
-            InitializeComponent();
-            Timer();
             
+            if (isAdmin() == true)
+            {
+                InitializeComponent();
+                Timer();
 
-            thisComputer = new Computer() { CPUEnabled = true, RAMEnabled = true, GPUEnabled = true };
-            thisComputer.Open();
+                thisComputer = new Computer() { CPUEnabled = true, RAMEnabled = true, GPUEnabled = true };
+                thisComputer.Open();
 
-            GetHardwareDatas();
+                GetHardwareDatas();
+            }
+            else
+            {
+                AdminRelauncher();
+            }    
         }
 
         public void Timer()
