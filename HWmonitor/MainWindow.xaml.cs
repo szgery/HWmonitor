@@ -112,7 +112,7 @@ namespace HWmonitor
                 }
             }catch (Exception ex)
             {
-                MessageBox.Show("Error: ", ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
             
         }
@@ -274,7 +274,7 @@ namespace HWmonitor
             foreach (var item in search.Get())
             {
                 networkAdapter.Items.Add(item["Manufacturer"] + " " + item["Name"]);;                
-                NwA = "Network adapter: " + item["Manufacturer"].ToString() + " " + item["Name"];
+                NwA = "Network adapter: " + item["Manufacturer"] + " " + item["Name"];
             }
             saveList.Add(NwA);
         }
@@ -288,7 +288,7 @@ namespace HWmonitor
             {
                 diskListBox.Items.Add(item["Model"] + " " + SizeSuffix(Convert.ToInt64(item["Size"].ToString())));
 
-                disks = "Disks: " + item["Model"] + " " + SizeSuffix(Convert.ToInt64(item["Size"].ToString())) + "/r/n";
+                disks = "Disks: " + item["Model"] + " " + SizeSuffix(Convert.ToInt64(item["Size"].ToString()));
             }
             saveList.Add(disks);
         }
