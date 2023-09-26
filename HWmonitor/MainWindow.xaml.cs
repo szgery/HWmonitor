@@ -98,6 +98,7 @@ namespace HWmonitor
             {
                 if (isAdmin() == true)
                 {
+                    MessageBox.Show("Ez a változtatás! :D");
                     InitializeComponent();
                     Timer();
 
