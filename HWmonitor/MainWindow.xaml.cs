@@ -129,7 +129,7 @@ namespace HWmonitor
         {
             search = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
 
-            String temp = "";
+            int temp = 0;
             float temp1 = 0;
             int load = 0;
             int gpuPerc = 0;
@@ -143,7 +143,7 @@ namespace HWmonitor
                     {
                         if (sensor.SensorType == SensorType.Temperature)
                         {
-                            temp += (int)sensor.Value;                            
+                            temp = (int)sensor.Value;                            
                             temp1 = (float)sensor.Value;
                         }                        
                     }                    
@@ -260,8 +260,9 @@ namespace HWmonitor
 
             foreach (var item in search.Get())
             {
-                memorytype.Items.Add(item["Name"].ToString() + " " + SizeSuffix(Convert.ToInt64(item["Capacity"].ToString())));
-                mem = "Memory: " + item["Name"].ToString() + " " + SizeSuffix(Convert.ToInt64(item["Capacity"].ToString()));
+                memorytype.Items.Add($"{item["Manufacturer"]} {SizeSuffix(Convert.ToInt64(item["Capacity"].ToString()))} {item["Speed"].ToString()}Mhz");
+                //memorytype.Items.Add(item["Manufacturer"] + "" + item["Speed"].ToString() + " " + SizeSuffix(Convert.ToInt64(item["Capacity"].ToString())));
+                mem = "Memory: " + item["Manufacturer"] + " " + SizeSuffix(Convert.ToInt64(item["Capacity"].ToString()));
             }
             saveList.Add(mem);
         }
