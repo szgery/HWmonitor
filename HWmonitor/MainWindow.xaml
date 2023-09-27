@@ -12,63 +12,45 @@
             <ColumnDefinition Width="295*"/>
         </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="10,45,0,0" TextWrapping="Wrap" Text="CPU" VerticalAlignment="Top" Width="59"/>
-        <Label x:Name="motherboardTextBox" Content="" HorizontalAlignment="Left" Height="26" Margin="108,209,0,0" VerticalAlignment="Top" Width="190"/>
-        <Separator HorizontalAlignment="Left" Height="10" Margin="10,109,0,0" VerticalAlignment="Top" Width="288"/>
+        <Label x:Name="motherboardTextBox" Content="" HorizontalAlignment="Left" Height="26" Margin="96,7,0,0" VerticalAlignment="Top" Width="190"/>
         <Label Content="Hardware Monitor" Height="39" Margin="426,10,285,0" VerticalAlignment="Top" Width="260" FontFamily="Stencil" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
-        <Separator HorizontalAlignment="Left" Height="10" Margin="10,194,0,0" VerticalAlignment="Top" Width="288"/>
-        <Label Content="Memory" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="memorytype" HorizontalAlignment="Left" Height="65" Margin="108,124,0,0" VerticalAlignment="Top" Width="190"/>
-        <Label Content="Motherboard" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top"/>
-        <Separator HorizontalAlignment="Left" Height="10" Margin="10,240,0,0" VerticalAlignment="Top" Width="288"/>
-        <Label Content="Network&#xA;Adapter(s)" HorizontalAlignment="Left" Height="45" Margin="10,250,0,0" VerticalAlignment="Top" Width="67"/>
-        <ListBox x:Name="networkAdapter" HorizontalAlignment="Left" Height="69" Margin="77,258,0,0" VerticalAlignment="Top" Width="221"/>
-        <Separator HorizontalAlignment="Left" Height="10" Margin="10,332,0,0" VerticalAlignment="Top" Width="288"/>
-        <Label x:Name="disk" Content="Disk(s)" HorizontalAlignment="Left" Margin="10,347,0,0" VerticalAlignment="Top" Width="67"/>
-        <ListBox x:Name="diskListBox" HorizontalAlignment="Left" Height="65" Margin="108,347,0,0" VerticalAlignment="Top" Width="190"/>
-        <Separator HorizontalAlignment="Left" Height="10" Margin="10,417,0,0" VerticalAlignment="Top" Width="288"/>
-        <Label x:Name="disk_Copy" Content="GPU(s)" HorizontalAlignment="Left" Margin="10,427,0,0" VerticalAlignment="Top" Width="67"/>
-        <ListBox x:Name="gpuListBox" HorizontalAlignment="Left" Height="65" Margin="108,432,0,0" VerticalAlignment="Top" Width="190"/>
-        <Separator HorizontalAlignment="Left" Height="12" Margin="70,246,0,0" VerticalAlignment="Top" Width="484" RenderTransformOrigin="0.5,0.5">
-            <Separator.RenderTransform>
+        <Separator HorizontalAlignment="Center" Height="10" Margin="0,194,0,0" VerticalAlignment="Top" Width="666"/>
+        <Label Content="RAM" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="memorytype" HorizontalAlignment="Left" Height="65" Margin="59,124,0,0" VerticalAlignment="Top" Width="253"/>
+        <Label Content="Motherboard" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+        <Label Content="Network&#xA;Adapter(s)" HorizontalAlignment="Left" Height="45" Margin="59,204,0,0" VerticalAlignment="Top" Width="67"/>
+        <ListBox x:Name="networkAdapter" HorizontalAlignment="Left" Height="285" Margin="59,244,0,0" VerticalAlignment="Top" Width="271"/>
+        <Label x:Name="disk" Content="Disk(s)" HorizontalAlignment="Left" Margin="373,209,0,0" VerticalAlignment="Top" Width="67"/>
+        <ListBox x:Name="diskListBox" HorizontalAlignment="Left" Height="285" Margin="373,244,0,0" VerticalAlignment="Top" Width="271"/>
+        <Label x:Name="disk_Copy" Content="GPU(s)" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Width="67" Grid.Column="1"/>
+        <ListBox x:Name="gpuListBox" HorizontalAlignment="Center" Height="137" Margin="0,232,0,0" VerticalAlignment="Top" Width="262" Grid.Column="1"/>
+        <ProgressBar x:Name="cpuLoad" HorizontalAlignment="Left" Height="15" Margin="373,50,0,0" VerticalAlignment="Top" Width="226" Foreground="#FF0097FF"/>
+        <ProgressBar x:Name="cputemp" HorizontalAlignment="Left" Height="15" Margin="373,76,0,0" VerticalAlignment="Top" Width="226" Maximum="75"/>
+        <TextBlock x:Name="cpuLoadText" HorizontalAlignment="Left" Height="15" Margin="603,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <TextBlock HorizontalAlignment="Left" Height="16" Margin="333,71,0,0" TextWrapping="Wrap" Text="Temp:" VerticalAlignment="Top" Width="59"/>
+        <TextBlock HorizontalAlignment="Left" Height="16" Margin="333,148,0,0" TextWrapping="Wrap" Text="Usage:" VerticalAlignment="Top" Width="49"/>
+        <ListBox x:Name="cpuname" HorizontalAlignment="Left" Height="60" Margin="59,44,0,0" VerticalAlignment="Top" Width="253"/>
+        <TextBlock x:Name="currTemp" HorizontalAlignment="Left" Height="16" Margin="604,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"/>
+        <TextBlock HorizontalAlignment="Left" Height="16" Margin="333,49,0,0" TextWrapping="Wrap" Text="Load:" VerticalAlignment="Top" Width="59"/>
+        <ProgressBar x:Name="memLevel" HorizontalAlignment="Left" Height="15" Margin="373,149,0,0" VerticalAlignment="Top" Width="226" Foreground="#FF0097FF"/>
+        <TextBlock HorizontalAlignment="Left" Height="16" Margin="18,388,0,0" TextWrapping="Wrap" Text="Usage:" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
+        <ProgressBar x:Name="gpuLevel" HorizontalAlignment="Left" Height="15" Margin="18,404,0,0" VerticalAlignment="Top" Width="198" Foreground="#FF0097FF" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="16" Margin="18,424,0,0" TextWrapping="Wrap" Text="Temp:" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
+        <ProgressBar x:Name="gpuTempLevel" HorizontalAlignment="Left" Height="15" Margin="18,440,0,0" VerticalAlignment="Top" Width="198" Foreground="#FF0097FF" Grid.Column="1"/>
+        <TextBlock x:Name="gpuLevelPercentage" HorizontalAlignment="Left" Height="16" Margin="221,403,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
+        <TextBlock x:Name="gpuTempText" HorizontalAlignment="Left" Height="16" Margin="221,439,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
+        <Button Content="Save to File: Hardwares" HorizontalAlignment="Left" Height="37" Margin="47,82,0,0" VerticalAlignment="Top" Width="187" Click="Button_Click" Grid.Column="1"/>
+        <TextBlock x:Name="tb_memLevel" HorizontalAlignment="Left" Height="16" Margin="604,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <Button x:Name="btn_loadApps" Grid.Column="1" Content="Load app list" HorizontalAlignment="Left" Margin="47,32,0,0" VerticalAlignment="Top" Click="btn_loadApps_Click" Height="32" Width="187" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
+                    <SkewTransform AngleX="1.081"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.481"/>
                 </TransformGroup>
-            </Separator.RenderTransform>
-        </Separator>
-        <ProgressBar x:Name="cpuLoad" HorizontalAlignment="Left" Height="15" Margin="383,54,0,0" VerticalAlignment="Top" Width="176" Foreground="#FF0097FF"/>
-        <ProgressBar x:Name="cputemp" HorizontalAlignment="Left" Height="15" Margin="383,75,0,0" VerticalAlignment="Top" Width="176" Maximum="75"/>
-        <TextBlock x:Name="cpuLoadText" HorizontalAlignment="Left" Height="15" Margin="575,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"/>
-        <TextBlock HorizontalAlignment="Left" Height="16" Margin="319,74,0,0" TextWrapping="Wrap" Text="Temp:" VerticalAlignment="Top" Width="59"/>
-        <TextBlock HorizontalAlignment="Left" Height="16" Margin="319,134,0,0" TextWrapping="Wrap" Text="Usage:" VerticalAlignment="Top" Width="59"/>
-        <ListBox x:Name="cpuname" HorizontalAlignment="Left" Height="60" Margin="108,44,0,0" VerticalAlignment="Top" Width="190"/>
-        <TextBlock x:Name="currTemp" HorizontalAlignment="Left" Height="16" Margin="575,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"/>
-        <TextBlock HorizontalAlignment="Left" Height="16" Margin="319,53,0,0" TextWrapping="Wrap" Text="Load:" VerticalAlignment="Top" Width="59"/>
-        <ProgressBar x:Name="memLevel" HorizontalAlignment="Left" Height="15" Margin="383,135,0,0" VerticalAlignment="Top" Width="176" Foreground="#FF0097FF"/>
-        <TextBlock HorizontalAlignment="Left" Height="16" Margin="319,440,0,0" TextWrapping="Wrap" Text="Usage:" VerticalAlignment="Top" Width="59"/>
-        <ProgressBar x:Name="gpuLevel" HorizontalAlignment="Left" Height="15" Margin="383,441,0,0" VerticalAlignment="Top" Width="176" Foreground="#FF0097FF"/>
-        <TextBlock HorizontalAlignment="Left" Height="16" Margin="319,461,0,0" TextWrapping="Wrap" Text="Temp:" VerticalAlignment="Top" Width="59"/>
-        <ProgressBar x:Name="gpuTempLevel" HorizontalAlignment="Left" Height="15" Margin="383,462,0,0" VerticalAlignment="Top" Width="176" Foreground="#FF0097FF"/>
-        <TextBlock x:Name="gpuLevelPercentage" HorizontalAlignment="Left" Height="16" Margin="575,443,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"/>
-        <TextBlock x:Name="gpuTempText" HorizontalAlignment="Left" Height="16" Margin="575,461,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"/>
-        <Separator HorizontalAlignment="Left" Height="12" Margin="406,249,0,0" VerticalAlignment="Top" Width="484" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
-            <Separator.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Separator.RenderTransform>
-        </Separator>
-        <Label Grid.ColumnSpan="2" Content="App list" HorizontalAlignment="Left" Height="29" Margin="670,10,0,0" VerticalAlignment="Top" Width="73"/>
-        <ListBox x:Name="appList" HorizontalAlignment="Left" Height="461" Margin="670,39,0,0" VerticalAlignment="Top" Width="285" Grid.ColumnSpan="2"/>
-        <Button Content="Save to File hardwares" HorizontalAlignment="Left" Height="37" Margin="123,502,0,0" VerticalAlignment="Top" Width="189" Click="Button_Click"/>
-        <Button Content="Save to File App list" HorizontalAlignment="Left" Height="37" Margin="646,505,0,0" VerticalAlignment="Top" Width="189" Grid.ColumnSpan="2" Click="Button_Click_1"/>
-        <Separator HorizontalAlignment="Left" Height="10" Margin="343,194,0,0" VerticalAlignment="Top" Width="261"/>
-        <Separator HorizontalAlignment="Left" Height="10" Margin="348,417,0,0" VerticalAlignment="Top" Width="256"/>
+            </Button.RenderTransform>
+        </Button>
 
     </Grid>
 </Window>

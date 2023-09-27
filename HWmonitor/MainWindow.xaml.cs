@@ -98,14 +98,14 @@ namespace HWmonitor
             {
                 if (isAdmin() == true)
                 {
-                    MessageBox.Show("Ez a változtatás! :D");
+ 
                     InitializeComponent();
-                    Timer();
+                    Dispatcher.BeginInvoke(new Action(() => Timer()));
 
-                    thisComputer = new Computer() { CPUEnabled = true, RAMEnabled = true, GPUEnabled = true };
-                    thisComputer.Open();
+                    Dispatcher.BeginInvoke(new Action(() => thisComputer = new Computer() { CPUEnabled = true, RAMEnabled = true, GPUEnabled = true }));
+                    Dispatcher.BeginInvoke(new Action(() =>  thisComputer.Open()));
 
-                    GetHardwareDatas();
+                    Dispatcher.BeginInvoke(new Action(() => GetHardwareDatas()));                    
                 }
                 else
                 {
@@ -176,20 +176,21 @@ namespace HWmonitor
                     {
                         if (sensor.SensorType == SensorType.Load)
                         {
-                            memLevel.Value = Math.Round(Convert.ToDouble(sensor.Value), 1);
+                            memLevel.Value = Math.Round(Convert.ToDouble(sensor.Value), 0);
+                            tb_memLevel.Text = $"{Math.Round(Convert.ToDouble(sensor.Value), 0).ToString()}%";
                         }
                     }
                 }
 
                 if (item.HardwareType == HardwareType.GpuAti || item.HardwareType == HardwareType.GpuNvidia)
-                {
-                    item.Update();
+                {                    
                     foreach (var sensor in item.Sensors)
                     {
+                        item.Update();
                         if (sensor.SensorType == SensorType.Load)
                         {
                             gpuLevel.Value = sensor.Value.Value;
-                            gpuPerc = (int)sensor.Value;                            
+                            gpuPerc = Convert.ToInt32(sensor.Value);
                         }
                         if (sensor.SensorType == SensorType.Temperature)
                         {
@@ -219,24 +220,22 @@ namespace HWmonitor
             Memory();
             NetworkAdapter();
             Disks();
-            GPU();
-            Products();           
+            GPU();        
         }
 
         void CPU()
         {
-            string cpu = "";
+            string cpuName = "";
 
             search = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
             foreach (var item in search.Get())
             {
-                cpuname.Items.Add(item["Name"].ToString() + " " + item["MaxClockSpeed"] + "MHz");
+                cpuname.Items.Add($"{item["Name"]}");
                 cpuLoad.Value = Convert.ToDouble(item["LoadPercentage"]);
-                cpu = "Processor: " + item["Name"].ToString() + " " + item["MaxClockSpeed"] + "MHz";
+                cpuName = $"CPU: {item["Name"]}";
 
-
+                saveList.Add(cpuName);
             }
-            saveList.Add(cpu);
         }
         void MotherBoard()
         {
@@ -249,8 +248,8 @@ namespace HWmonitor
                 motherboardTextBox.Content += " " + item["Product"].ToString();
 
                 mb = "Motherboard: " + item["Manufacturer"].ToString() + " " + item["Product"].ToString();
+                saveList.Add(mb);
             }
-            saveList.Add(mb);
         }
 
         void Memory()
@@ -264,8 +263,8 @@ namespace HWmonitor
                 memorytype.Items.Add($"{item["Manufacturer"]} {SizeSuffix(Convert.ToInt64(item["Capacity"].ToString()))} {item["Speed"].ToString()}Mhz");
                 //memorytype.Items.Add(item["Manufacturer"] + "" + item["Speed"].ToString() + " " + SizeSuffix(Convert.ToInt64(item["Capacity"].ToString())));
                 mem = "Memory: " + item["Manufacturer"] + " " + SizeSuffix(Convert.ToInt64(item["Capacity"].ToString()));
+                saveList.Add(mem);
             }
-            saveList.Add(mem);
         }
 
         void NetworkAdapter()
@@ -277,8 +276,8 @@ namespace HWmonitor
             {
                 networkAdapter.Items.Add(item["Manufacturer"] + " " + item["Name"]);;                
                 NwA = "Network adapter: " + item["Manufacturer"] + " " + item["Name"];
+                saveList.Add(NwA);
             }
-            saveList.Add(NwA);
         }
 
         void Disks()
@@ -290,9 +289,9 @@ namespace HWmonitor
             {
                 diskListBox.Items.Add(item["Model"] + " " + SizeSuffix(Convert.ToInt64(item["Size"].ToString())));
 
-                disks = "Disks: " + item["Model"] + " " + SizeSuffix(Convert.ToInt64(item["Size"].ToString()));
-            }
-            saveList.Add(disks);
+                disks = "Disk: " + item["Model"] + " " + SizeSuffix(Convert.ToInt64(item["Size"].ToString()));
+                saveList.Add(disks);
+            }            
         }
 
         void GPU()
@@ -304,18 +303,7 @@ namespace HWmonitor
             {
                 gpuListBox.Items.Add(item["Name"].ToString());
                 gpu = "GPU: " + item["Name"].ToString();
-            }
-            saveList.Add(gpu);
-        }
-
-        void Products()
-        {
-
-            search = new ManagementObjectSearcher("SELECT * FROM Win32_Product");
-            foreach (var item in search.Get())
-            {
-                appList.Items.Add(item["Name"] + " " + item["Version"]);
-                productList.Add(item["Name"] + " " + item["Version"]);
+                saveList.Add(gpu);
             }
         }
 
@@ -328,32 +316,20 @@ namespace HWmonitor
 
             if (saveFileDialog1.ShowDialog() == true)
             {
-                foreach (var item in saveList)
-                {
-                    File.AppendAllLines(saveFileDialog1.FileName, saveList);
-                }
+                File.WriteAllLines(saveFileDialog1.FileName, saveList);
             }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "Text File|*.txt";
-            saveFileDialog1.Title = "Save";
-
-
-            if (saveFileDialog1.ShowDialog() == true)
-            {
-                foreach (var item in productList)
-                {
-                    File.AppendAllLines(saveFileDialog1.FileName, productList);
-                }
-            }
-        }
+        }        
 
         private void diskListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btn_loadApps_Click(object sender, RoutedEventArgs e)
+        {
+            window_apps win = new window_apps();
+
+            win.Show();
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿<Window x:Class="HWmonitor.window_apps"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HWmonitor"
+        mc:Ignorable="d"
+        Title="window_apps" Height="531" Width="425" ResizeMode="NoResize">
+    <Grid>
+        <Label x:Name="lbl_win2AppList" Content="App list" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="lb_appList" Margin="10,41,10,47"/>
+        <Button Content="Export: App list to file" HorizontalAlignment="Center" Margin="0,473,0,0" VerticalAlignment="Top" Width="282" Height="23" Click="Button_Click"/>
+
+    </Grid>
+</Window>

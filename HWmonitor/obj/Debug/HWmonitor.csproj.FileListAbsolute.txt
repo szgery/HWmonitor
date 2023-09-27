@@ -36,3 +36,5 @@ D:\HWmonitor-master\HWmonitor-master\HWmonitor\bin\Debug\HWmonitor.application
 D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\HWmonitor.TrustInfo.xml
 D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\HWmonitor.exe.manifest
 D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\HWmonitor.application
+D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\window_apps.g.cs
+D:\HWmonitor-master\HWmonitor-master\HWmonitor\obj\Debug\window_apps.baml
